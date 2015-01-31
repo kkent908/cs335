@@ -1,12 +1,12 @@
 %module VarFactory
 %{
 #include "VarFactory.h"
-  %}
+%}
 
 %include "std_string.i"
 
 class VarFactory {
- public:
+public:
   VarFactory();
   VarPtr testVar(std::string name, Space fs, int ID = -1);
   VarPtr fieldVar(std::string name, Space fs = L2, int ID = -1);
@@ -22,21 +22,21 @@ class VarFactory {
   VarPtr traceVar(std::string name, VarPtr termTraced, Space fs = HGRAD, int ID = -1);
   VarPtr traceVar(std::string name, Space fs = HGRAD, int ID = -1);
 
-  %extend {
-    VarPtr testVar(std::string name, int fs, int ID = -1) {
-      return self->testVar(name, (Space)fs, ID);
-    }
-    VarPtr fieldVar(std::string name, int fs, int ID = -1) {
-      return self->fieldVar(name,(Space)fs,ID);
-    }
-    VarPtr traceVar(std::string name, LinearTermPtr termTraced, int fs, int ID = -1) {
-      return self->traceVar(name, termTraced, (Space)fs, ID);
-    }
-    VarPtr traceVar(std::string name, VarPtr termTraced, int fs, int ID = -1) {
-      return self->traceVar(name, termTraced, (Space)fs, ID);
-    }
-    VarPtr traceVar(std::string name, int fs, int ID = -1) {
-      return self->traceVar(name, (Space)fs, ID);
-    } 
+%extend {
+  VarPtr testVar(std::string name, int fs, int ID = -1) {
+    return self->testVar(name, (Space)fs, ID);
   }
- };
+  VarPtr fieldVar(std::string name, int fs, int ID = -1) {
+    return self->fieldVar(name,(Space)fs,ID);
+  }
+  VarPtr traceVar(std::string name, LinearTermPtr termTraced, int fs, int ID = -1) {
+    return self->traceVar(name, termTraced, (Space)fs, ID);
+  }
+  VarPtr traceVar(std::string name, VarPtr termTraced, int fs, int ID = -1) {
+    return self->traceVar(name, termTraced, (Space)fs, ID);
+  }
+  VarPtr traceVar(std::string name, int fs, int ID = -1) {
+    return self->traceVar(name, (Space)fs, ID);
+  } 
+}
+};
