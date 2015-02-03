@@ -1,7 +1,7 @@
-%module HDF5Exporter.i
+%module HDF5Exporter
 %{
 #include "HDF5Exporter.h"
-  %}
+%}
 
 %include "std_string.i"
 
@@ -18,3 +18,4 @@ class HDF5Exporter {
 
   void exportSolution(SolutionPtr solution, VarFactory varFactory, double
 		      timeVal=0);
+ };

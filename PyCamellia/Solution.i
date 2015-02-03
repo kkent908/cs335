@@ -29,7 +29,7 @@ class Solution {
   void setCubatureEnrichmentDegree(int value); //Sets the polynomial degree enrichment to use when computing integrals.
 
   double L2NormOfSolution(int trialID); //Takes the L^2 norm of the solution in the variable specified by trialID. (Zero for
-zero solutions; computes area if the solution has value 1.)
+  // zero solutions; computes area if the solution has value 1.)
   void projectOntoMesh(const map<int, Teuchos::RCP<Function> > &functionMap);
   double energyErrorTotal();
   void setWriteMatrixToFile(bool value,const string &filePath);
@@ -46,4 +46,4 @@ zero solutions; computes area if the solution has value 1.)
   static SolutionPtr load(BFPtr bf, string meshAndSolutionPrefix);
   void saveToHDF5(string filename);
   void loadFromHDF5(string filename);
-}
+};
