@@ -60,9 +60,9 @@ LINK_ALL="-lpython2.7 -L$Trilinos_LIBRARY_DIRS $Trilinos_LIBRARIES_LINK_LINE -L$
 #$CPP -c -Wall -fpic MeshFactory_wrap.cxx $INCLUDE_ALL
 #$CPP -shared MeshFactory_wrap.o -o _MeshFactory.so $LINK_ALL
 
-#swig -Wall -c++ -python -I$CAMELLIA_INCLUDE Solution.i
-#$CPP -c -Wall -fpic Solution_wrap.cxx $INCLUDE_ALL
-#$CPP -shared Solution_wrap.o -o _Solution.so $LINK_ALL
+swig -Wall -c++ -python -I$CAMELLIA_INCLUDE Solution.i
+$CPP -c -Wall -fpic Solution_wrap.cxx $INCLUDE_ALL
+$CPP -shared Solution_wrap.o -o _Solution.so $LINK_ALL
 
 #swig -Wall -c++ -python -I$CAMELLIA_INCLUDE HDF5Exporter.i
 #$CPP -c -Wall -fpic HDF5Exporter_wrap.cxx $INCLUDE_ALL
