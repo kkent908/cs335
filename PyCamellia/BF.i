@@ -29,4 +29,17 @@ class BF {
 
    VarFactory varFactory();
 
+
+   %extend {
+     void addTerm(std::string name, int fs, int ID = -1) {
+    return self->testVar(name, (Space)fs, ID);
+
+   }
+
  };
+
+
+class BFPtr {
+public:
+  BF* operator->();
+};

@@ -1,3 +1,4 @@
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -82,3 +83,15 @@ target/
 *.exe
 *.out
 *.app
+
+# Specific automatically generated python files
+Solution.py
+BF.py
+HDF5Exporter.py
+LinearTerm.py
+*.cxx
+Function.py
+Tests.py
+*.py~
+Var.py
+VarFactory.py
