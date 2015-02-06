@@ -1,0 +1,3 @@
+[submodule "class_repo"]
+	path = class_repo
+	url = https://github.com/nateroberts/PyCamellia.git
