@@ -14,12 +14,12 @@ public:
   static SolutionPtr solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
                               RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null);
 
-
   Solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
 	   RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null );  //Standard Solution constructor.
 
   Solution(const Solution &soln); //Solution copy constructor.
 
+  // ------------------------------DON'T TEST TOO COMPLICATED---------------------------------------
   int solve(); //Solves. Returns 0 on success; returns an error code otherwise.
 
   void addSolution(Teuchos::RCP<Solution> soln, double weight,
