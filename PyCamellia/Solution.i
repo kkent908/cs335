@@ -5,9 +5,15 @@
 
 %include "std_string.i"
 
+%nodefaultctor Solution;  // Disable the default constructor for class Solution
+
+
 class Solution {
- public:
-  Solution();
+public:
+
+  static SolutionPtr solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
+                              RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null);
+
 
   Solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
 	   RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null );  //Standard Solution constructor.

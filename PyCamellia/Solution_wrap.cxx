@@ -3225,20 +3225,307 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGINTERN PyObject *_wrap_new_Solution__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Solution_solution__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Solution *result = 0 ;
+  MeshPtr arg1 ;
+  BCPtr arg2 ;
+  RHSPtr arg3 ;
+  IPPtr arg4 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  SolutionPtr result;
   
-  if (!PyArg_ParseTuple(args,(char *)":new_Solution")) SWIG_fail;
-  result = (Solution *)new Solution();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Solution, SWIG_POINTER_NEW |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:Solution_solution",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_BCPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Solution_solution" "', argument " "2"" of type '" "BCPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "2"" of type '" "BCPtr""'");
+    } else {
+      BCPtr * temp = reinterpret_cast< BCPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_RHSPtr,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Solution_solution" "', argument " "3"" of type '" "RHSPtr""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "3"" of type '" "RHSPtr""'");
+    } else {
+      RHSPtr * temp = reinterpret_cast< RHSPtr * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_IPPtr,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Solution_solution" "', argument " "4"" of type '" "IPPtr""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "4"" of type '" "IPPtr""'");
+    } else {
+      IPPtr * temp = reinterpret_cast< IPPtr * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  result = Solution::solution(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Solution__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Solution_solution__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshPtr arg1 ;
+  BCPtr arg2 ;
+  RHSPtr arg3 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Solution_solution",&obj0,&obj1,&obj2)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_BCPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Solution_solution" "', argument " "2"" of type '" "BCPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "2"" of type '" "BCPtr""'");
+    } else {
+      BCPtr * temp = reinterpret_cast< BCPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_RHSPtr,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Solution_solution" "', argument " "3"" of type '" "RHSPtr""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "3"" of type '" "RHSPtr""'");
+    } else {
+      RHSPtr * temp = reinterpret_cast< RHSPtr * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = Solution::solution(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Solution_solution__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshPtr arg1 ;
+  BCPtr arg2 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Solution_solution",&obj0,&obj1)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_BCPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Solution_solution" "', argument " "2"" of type '" "BCPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "2"" of type '" "BCPtr""'");
+    } else {
+      BCPtr * temp = reinterpret_cast< BCPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  result = Solution::solution(arg1,arg2);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Solution_solution__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshPtr arg1 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Solution_solution",&obj0)) SWIG_fail;
+  {
+    res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Solution_solution" "', argument " "1"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp1);
+      arg1 = *temp;
+      if (SWIG_IsNewObj(res1)) delete temp;
+    }
+  }
+  result = Solution::solution(arg1);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Solution_solution(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_MeshPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Solution_solution__SWIG_3(self, args);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_MeshPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_BCPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_Solution_solution__SWIG_2(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_MeshPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_BCPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_RHSPtr, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_Solution_solution__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_MeshPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_BCPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_RHSPtr, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_IPPtr, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_Solution_solution__SWIG_0(self, args);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Solution_solution'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    Solution::solution(MeshPtr,BCPtr,RHSPtr,IPPtr)\n"
+    "    Solution::solution(MeshPtr,BCPtr,RHSPtr)\n"
+    "    Solution::solution(MeshPtr,BCPtr)\n"
+    "    Solution::solution(MeshPtr)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Solution__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MeshPtr arg1 ;
   BCPtr arg2 ;
@@ -3319,7 +3606,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Solution__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Solution__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MeshPtr arg1 ;
   BCPtr arg2 ;
@@ -3383,7 +3670,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Solution__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Solution__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MeshPtr arg1 ;
   BCPtr arg2 ;
@@ -3430,7 +3717,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Solution__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Solution__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   MeshPtr arg1 ;
   void *argp1 ;
@@ -3460,7 +3747,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Solution__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Solution__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Solution *arg1 = 0 ;
   void *argp1 = 0 ;
@@ -3495,15 +3782,12 @@ SWIGINTERN PyObject *_wrap_new_Solution(PyObject *self, PyObject *args) {
   for (ii = 0; (ii < 4) && (ii < argc); ii++) {
     argv[ii] = PyTuple_GET_ITEM(args,ii);
   }
-  if (argc == 0) {
-    return _wrap_new_Solution__SWIG_0(self, args);
-  }
   if (argc == 1) {
     int _v;
     int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_MeshPtr, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      return _wrap_new_Solution__SWIG_4(self, args);
+      return _wrap_new_Solution__SWIG_3(self, args);
     }
   }
   if (argc == 1) {
@@ -3511,7 +3795,7 @@ SWIGINTERN PyObject *_wrap_new_Solution(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_Solution, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      return _wrap_new_Solution__SWIG_5(self, args);
+      return _wrap_new_Solution__SWIG_4(self, args);
     }
   }
   if (argc == 2) {
@@ -3522,7 +3806,7 @@ SWIGINTERN PyObject *_wrap_new_Solution(PyObject *self, PyObject *args) {
       int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_BCPtr, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
-        return _wrap_new_Solution__SWIG_3(self, args);
+        return _wrap_new_Solution__SWIG_2(self, args);
       }
     }
   }
@@ -3537,7 +3821,7 @@ SWIGINTERN PyObject *_wrap_new_Solution(PyObject *self, PyObject *args) {
         int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_RHSPtr, 0);
         _v = SWIG_CheckState(res);
         if (_v) {
-          return _wrap_new_Solution__SWIG_2(self, args);
+          return _wrap_new_Solution__SWIG_1(self, args);
         }
       }
     }
@@ -3556,7 +3840,7 @@ SWIGINTERN PyObject *_wrap_new_Solution(PyObject *self, PyObject *args) {
           int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_IPPtr, 0);
           _v = SWIG_CheckState(res);
           if (_v) {
-            return _wrap_new_Solution__SWIG_1(self, args);
+            return _wrap_new_Solution__SWIG_0(self, args);
           }
         }
       }
@@ -3566,7 +3850,6 @@ SWIGINTERN PyObject *_wrap_new_Solution(PyObject *self, PyObject *args) {
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_Solution'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Solution::Solution()\n"
     "    Solution::Solution(MeshPtr,BCPtr,RHSPtr,IPPtr)\n"
     "    Solution::Solution(MeshPtr,BCPtr,RHSPtr)\n"
     "    Solution::Solution(MeshPtr,BCPtr)\n"
@@ -4785,6 +5068,362 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SolutionPtr_solution__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SolutionPtr *arg1 = (SolutionPtr *) 0 ;
+  MeshPtr arg2 ;
+  BCPtr arg3 ;
+  RHSPtr arg4 ;
+  IPPtr arg5 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  void *argp5 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:SolutionPtr_solution",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_SolutionPtr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SolutionPtr_solution" "', argument " "1"" of type '" "SolutionPtr *""'"); 
+  }
+  arg1 = reinterpret_cast< SolutionPtr * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_BCPtr,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SolutionPtr_solution" "', argument " "3"" of type '" "BCPtr""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "3"" of type '" "BCPtr""'");
+    } else {
+      BCPtr * temp = reinterpret_cast< BCPtr * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_RHSPtr,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "SolutionPtr_solution" "', argument " "4"" of type '" "RHSPtr""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "4"" of type '" "RHSPtr""'");
+    } else {
+      RHSPtr * temp = reinterpret_cast< RHSPtr * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  {
+    res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_IPPtr,  0  | 0);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "SolutionPtr_solution" "', argument " "5"" of type '" "IPPtr""'"); 
+    }  
+    if (!argp5) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "5"" of type '" "IPPtr""'");
+    } else {
+      IPPtr * temp = reinterpret_cast< IPPtr * >(argp5);
+      arg5 = *temp;
+      if (SWIG_IsNewObj(res5)) delete temp;
+    }
+  }
+  result = (*arg1)->solution(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SolutionPtr_solution__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SolutionPtr *arg1 = (SolutionPtr *) 0 ;
+  MeshPtr arg2 ;
+  BCPtr arg3 ;
+  RHSPtr arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:SolutionPtr_solution",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_SolutionPtr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SolutionPtr_solution" "', argument " "1"" of type '" "SolutionPtr *""'"); 
+  }
+  arg1 = reinterpret_cast< SolutionPtr * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_BCPtr,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SolutionPtr_solution" "', argument " "3"" of type '" "BCPtr""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "3"" of type '" "BCPtr""'");
+    } else {
+      BCPtr * temp = reinterpret_cast< BCPtr * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  {
+    res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_RHSPtr,  0  | 0);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "SolutionPtr_solution" "', argument " "4"" of type '" "RHSPtr""'"); 
+    }  
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "4"" of type '" "RHSPtr""'");
+    } else {
+      RHSPtr * temp = reinterpret_cast< RHSPtr * >(argp4);
+      arg4 = *temp;
+      if (SWIG_IsNewObj(res4)) delete temp;
+    }
+  }
+  result = (*arg1)->solution(arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SolutionPtr_solution__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SolutionPtr *arg1 = (SolutionPtr *) 0 ;
+  MeshPtr arg2 ;
+  BCPtr arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:SolutionPtr_solution",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_SolutionPtr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SolutionPtr_solution" "', argument " "1"" of type '" "SolutionPtr *""'"); 
+  }
+  arg1 = reinterpret_cast< SolutionPtr * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_BCPtr,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SolutionPtr_solution" "', argument " "3"" of type '" "BCPtr""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "3"" of type '" "BCPtr""'");
+    } else {
+      BCPtr * temp = reinterpret_cast< BCPtr * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  result = (*arg1)->solution(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SolutionPtr_solution__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SolutionPtr *arg1 = (SolutionPtr *) 0 ;
+  MeshPtr arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  SolutionPtr result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:SolutionPtr_solution",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_SolutionPtr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SolutionPtr_solution" "', argument " "1"" of type '" "SolutionPtr *""'"); 
+  }
+  arg1 = reinterpret_cast< SolutionPtr * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_MeshPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SolutionPtr_solution" "', argument " "2"" of type '" "MeshPtr""'");
+    } else {
+      MeshPtr * temp = reinterpret_cast< MeshPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  result = (*arg1)->solution(arg2);
+  resultobj = SWIG_NewPointerObj((new SolutionPtr(static_cast< const SolutionPtr& >(result))), SWIGTYPE_p_SolutionPtr, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SolutionPtr_solution(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[6];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 5) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_SolutionPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_MeshPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_SolutionPtr_solution__SWIG_3(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_SolutionPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_MeshPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_BCPtr, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_SolutionPtr_solution__SWIG_2(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_SolutionPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_MeshPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_BCPtr, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_RHSPtr, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_SolutionPtr_solution__SWIG_1(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_SolutionPtr, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_MeshPtr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_BCPtr, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_RHSPtr, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            int res = SWIG_ConvertPtr(argv[4], 0, SWIGTYPE_p_IPPtr, 0);
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              return _wrap_SolutionPtr_solution__SWIG_0(self, args);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'SolutionPtr_solution'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    Solution::solution(MeshPtr,BCPtr,RHSPtr,IPPtr)\n"
+    "    Solution::solution(MeshPtr,BCPtr,RHSPtr)\n"
+    "    Solution::solution(MeshPtr,BCPtr)\n"
+    "    Solution::solution(MeshPtr)\n");
+  return 0;
+}
+
+
 SWIGINTERN PyObject *_wrap_SolutionPtr_solve(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   SolutionPtr *arg1 = (SolutionPtr *) 0 ;
@@ -5928,6 +6567,7 @@ SWIGINTERN PyObject *SolutionPtr_swigregister(PyObject *SWIGUNUSEDPARM(self), Py
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
+	 { (char *)"Solution_solution", _wrap_Solution_solution, METH_VARARGS, NULL},
 	 { (char *)"new_Solution", _wrap_new_Solution, METH_VARARGS, NULL},
 	 { (char *)"Solution_solve", _wrap_Solution_solve, METH_VARARGS, NULL},
 	 { (char *)"Solution_addSolution", _wrap_Solution_addSolution, METH_VARARGS, NULL},
@@ -5956,6 +6596,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SolutionPtr___deref__", _wrap_SolutionPtr___deref__, METH_VARARGS, NULL},
 	 { (char *)"new_SolutionPtr", _wrap_new_SolutionPtr, METH_VARARGS, NULL},
 	 { (char *)"delete_SolutionPtr", _wrap_delete_SolutionPtr, METH_VARARGS, NULL},
+	 { (char *)"SolutionPtr_solution", _wrap_SolutionPtr_solution, METH_VARARGS, NULL},
 	 { (char *)"SolutionPtr_solve", _wrap_SolutionPtr_solve, METH_VARARGS, NULL},
 	 { (char *)"SolutionPtr_addSolution", _wrap_SolutionPtr_addSolution, METH_VARARGS, NULL},
 	 { (char *)"SolutionPtr_clear", _wrap_SolutionPtr_clear, METH_VARARGS, NULL},

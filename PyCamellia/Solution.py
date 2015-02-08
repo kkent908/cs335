@@ -75,6 +75,8 @@ class Solution(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Solution, name)
     __repr__ = _swig_repr
+    __swig_getmethods__["solution"] = lambda x: _Solution.Solution_solution
+    if _newclass:solution = staticmethod(_Solution.Solution_solution)
     def __init__(self, *args): 
         this = _Solution.new_Solution(*args)
         try: self.this.append(this)
@@ -107,6 +109,10 @@ class Solution(_object):
 Solution_swigregister = _Solution.Solution_swigregister
 Solution_swigregister(Solution)
 
+def Solution_solution(*args):
+  return _Solution.Solution_solution(*args)
+Solution_solution = _Solution.Solution_solution
+
 def Solution_load(*args):
   return _Solution.Solution_load(*args)
 Solution_load = _Solution.Solution_load
@@ -124,6 +130,7 @@ class SolutionPtr(_object):
         except: self.this = this
     __swig_destroy__ = _Solution.delete_SolutionPtr
     __del__ = lambda self : None;
+    def solution(self, *args): return _Solution.SolutionPtr_solution(self, *args)
     def solve(self): return _Solution.SolutionPtr_solve(self)
     def addSolution(self, *args): return _Solution.SolutionPtr_addSolution(self, *args)
     def clear(self): return _Solution.SolutionPtr_clear(self)
