@@ -34,23 +34,8 @@ def testTrialName(self):
 
 """Test the method """
 def testAddTerm(self):
-	
-	#not making?
-	#what about BF.i file?
-	#how to assign values to these vars?
-	#how to get a var in varFactory to test the names being equal?
 
 
-	"""
-	We make some vars.
-	we make a linear term pointer through operator overloading two vars
-	We get a function pointer through LinearTerm's evaluate. Use map.
-	then we evaluate the function at two double values using function.evaluate
-	How do we get values in 
-	
-
-
-	"""
 f = Function.Function_xn(1);
 g = Function.Function_yn(1);
 vf = VarFactory.VarFactory();
@@ -60,9 +45,9 @@ v = vf.testVar("test", 7);
 lt = 1.0 * u;
 lt2 = 1.0 * v;
 	
-	# vf2 = VarFactory.VarFactory();
+
 bf = BF.BF(vf);
-bf.addTerm(lt, lt2);
+
 	
 
 
@@ -72,6 +57,8 @@ h = lt.evaluate({
 		});
 
 
+
+        bf.addTerm(lt, lt2);
 	h.evaluate(5, 6);
 
 	bf = BF.BF(VarFactory.VarFactory());
