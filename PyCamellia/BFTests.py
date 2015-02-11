@@ -1,0 +1,86 @@
+import BF
+import VarFactory
+import Var
+import LinearTerm
+import Function
+import unittest
+import PoissonFormulation
+
+class Tests(unittest.TestCase):ls
+
+"""Test the method testName()"""
+def testTestName(self):
+	
+
+
+	vf = VarFactory.VarFactory();
+	myVar = vf.testVar("identify me 1", 1);
+	myVar2 = vf.testVar("identify me 2", 1);
+	i = myVar2.ID();
+
+
+	bf = PoissonFormulation.bf();
+	self.assertEqual(bf.testName(i), "identify me 2", "testName()");
+
+def testTrialName(self):
+	vf = VarFactory.VarFactory();
+	myVar = vf.fieldVar("identify me");
+	myVar2 = vf.fieldVar("identify me 2");
+	i = myVar2.ID();
+
+	bf = BF.BF(vf);
+	self.assertEqual(bf.trialName(i), "identify me 2", "trialName()");
+
+
+"""Test the method """
+def testAddTerm(self):
+	
+	#not making?
+	#what about BF.i file?
+	#how to assign values to these vars?
+	#how to get a var in varFactory to test the names being equal?
+
+
+	"""
+	We make some vars.
+	we make a linear term pointer through operator overloading two vars
+	We get a function pointer through LinearTerm's evaluate. Use map.
+	then we evaluate the function at two double values using function.evaluate
+	How do we get values in 
+	
+
+
+	"""
+f = Function.Function_xn(1);
+g = Function.Function_yn(1);
+vf = VarFactory.VarFactory();
+u = vf.fieldVar("field");
+v = vf.testVar("test", 7);
+
+lt = 1.0 * u;
+lt2 = 1.0 * v;
+	
+	# vf2 = VarFactory.VarFactory();
+bf = BF.BF(vf);
+bf.addTerm(lt, lt2);
+	
+
+
+	#FunctionPtr
+h = lt.evaluate({
+		u.ID() : f
+		});
+
+
+	h.evaluate(5, 6);
+
+	bf = BF.BF(VarFactory.VarFactory());
+	bf.addTerm(lt, lt2);
+
+
+
+def testIsFluxOrTrace(self):
+	vf = VarFactory.VarFactory();
+	myVar = vf.fluxVar("identify me");
+	bf = BF.BF(VarFactory.VarFactory());
+	
