@@ -3,6 +3,7 @@ import VarFactory
 import Var
 import LinearTerm
 import Function
+import IP
 import unittest
 import PoissonFormulation
 
@@ -10,8 +11,6 @@ class Tests(unittest.TestCase):ls
 
 """Test the method testName()"""
 def testTestName(self):
-	
-
 
 	vf = VarFactory.VarFactory();
 	myVar = vf.testVar("identify me 1", 1);
@@ -78,6 +77,41 @@ def testIsFluxOrTrace(self):
 	self.assertEqual(bf.isFluxOrTrace(i), True, "test isFluxOrTrace");
 	self.assertEqual(bf.isFluxOrTrace(j), True, "test isFluxOrTrace");
 	self.assertEqual(bf.isFluxOrTrace(k), False, "test isFluxOrTrace");
+
+def testGraphNorm(self):
+
+
+f = Function.Function_xn(1);
+g = Function.Function_yn(1);
+vf = VarFactory.VarFactory();
+u = vf.fieldVar("field");
+v = vf.testVar("test", 7);
+
+lt = 1.0 * u;
+lt2 = 1.0 * v;
+
+bf = BF.BF(vf);
+bf.addTerm(lt, lt2);
+
+ip = bf.graphNorm();
+	
+#linear term pointer
+h = ip.evaluate({ 
+		u.ID() : f,
+		v.ID() : g
+		});
+
+
+
+
+
+h = lt.evaluate({
+      u.ID() : f
+      });
+	h.evaluate(5, 6);
+
+	
+
 	
 	
 
