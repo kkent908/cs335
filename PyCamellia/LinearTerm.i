@@ -17,9 +17,16 @@ public:
   LinearTerm();
   const set<int> & varIDs();
   VarType termType();
-  FunctionPtr evaluate(const std::map< int, FunctionPtr> &functionMap);
+  FunctionPtr evaluate(std::map< int, FunctionPtr> &functionMap);
   int rank();
   string displayString();
+
+ %extend {
+    FunctionPtr evaluate(const map<int, FunctionPtr> &functionMap) {
+      map<int, FunctionPtr> functionMapCopy = functionMap;
+      return self->evaluate(functionMapCopy);
+    }
+  }
 
  };
 
@@ -62,6 +69,10 @@ public:
     }
 
   }
+
+
+
+
 
 };
     //for FunctionPtr and VarPtr without linear term

@@ -17,9 +17,8 @@ def testTestName(self):
 	myVar = vf.testVar("identify me 1", 1);
 	myVar2 = vf.testVar("identify me 2", 1);
 	i = myVar2.ID();
-
-
-	bf = PoissonFormulation.bf();
+	
+	bf = BF.BF(vf);
 	self.assertEqual(bf.testName(i), "identify me 2", "testName()");
 
 def testTrialName(self):
@@ -69,5 +68,20 @@ h = lt.evaluate({
 def testIsFluxOrTrace(self):
 	vf = VarFactory.VarFactory();
 	myVar = vf.fluxVar("identify me");
-	bf = BF.BF(VarFactory.VarFactory());
+	myVar2 = vf.traceVar("hey");
+	myVar3 = vf.fieldVar("hi");
+	i = myVar.ID();
+	j = myVar2.ID();
+	k = myVar3.ID();
+
+	bf = BF.BF(vf);
+	self.assertEqual(bf.isFluxOrTrace(i), True, "test isFluxOrTrace");
+	self.assertEqual(bf.isFluxOrTrace(j), True, "test isFluxOrTrace");
+	self.assertEqual(bf.isFluxOrTrace(k), False, "test isFluxOrTrace");
+	
+	
+
+
+
+
 	
