@@ -74,13 +74,10 @@ class Solution(_object):
     __setattr__ = lambda self, name, value: _swig_setattr(self, Solution, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Solution, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_getmethods__["solution"] = lambda x: _Solution.Solution_solution
     if _newclass:solution = staticmethod(_Solution.Solution_solution)
-    def __init__(self, *args): 
-        this = _Solution.new_Solution(*args)
-        try: self.this.append(this)
-        except: self.this = this
     def solve(self): return _Solution.Solution_solve(self)
     def addSolution(self, *args): return _Solution.Solution_addSolution(self, *args)
     def clear(self): return _Solution.Solution_clear(self)
