@@ -17,7 +17,7 @@ public:
   // ------------------------------DON'T TEST TOO COMPLICATED---------------------------------------
   int solve(); //Solves. Returns 0 on success; returns an error code otherwise.
 
-  void addSolution(Teuchos::RCP<Solution> soln, double weight,
+  void addSolution(SolutionPtr soln, double weight,
 		   bool allowEmptyCells = false, bool replaceBoundaryTerms = false); //Adds the specified Solution to this with weight weight: thisSoln += weight * soln.
 
   void addSolution(Teuchos::RCP<Solution> soln, double weight,
