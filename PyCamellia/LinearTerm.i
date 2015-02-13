@@ -4,15 +4,29 @@
 %}
 
 %include "std_string.i"
+%include "std_map.i"
+
+namespace std {
+  %template(MapIntToFunction) map<int,FunctionPtr>;
+}
+
+using namespace std;
 
 class LinearTerm {
 public:
   LinearTerm();
   const set<int> & varIDs();
   VarType termType();
-  FunctionPtr evaluate(map< int, FunctionPtr> &varFunctions);
+  FunctionPtr evaluate(std::map< int, FunctionPtr> &functionMap);
   int rank();
   string displayString();
+
+ %extend {
+    FunctionPtr evaluate(const map<int, FunctionPtr> &functionMap) {
+      map<int, FunctionPtr> functionMapCopy = functionMap;
+      return self->evaluate(functionMapCopy);
+    }
+  }
 
  };
 
@@ -55,6 +69,10 @@ public:
     }
 
   }
+
+
+
+
 
 };
     //for FunctionPtr and VarPtr without linear term
