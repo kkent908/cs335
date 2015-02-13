@@ -9,21 +9,26 @@ import Solution
 import MeshFactory
 import Mesh
 
+
+
+
+
+
+
+
+
+
+
+
+
 class BFTests(unittest.TestCase):
 
 	def testConstructor(self):
 		vf = VarFactory.VarFactory();
-		v = vf.fieldVar("hi");
-		u = vf.fieldVar("field");
-		uID = u.ID();
 	
 		bf = BF.BF_bf(vf);
-	
-		vfCopy = bf.varFactory();
-		uCopy = vfCopy.trial(uID);
-		uIDCopy = uCopy.ID();
 
-		self.assertEqual(uID, uIDCopy, "test BF.BF_bf()");
+		self.assertIsNotNone(bf, "test BF.BF_bf()");
 
 #Test the method testName()
 	def testTestName(self):
@@ -42,6 +47,25 @@ class BFTests(unittest.TestCase):
 
 		bf = BF.BF_bf(vf);
 		self.assertEqual(bf.trialName(i), myVar.name(), "trialName()");
+
+
+
+	def testFunctionSpaceForTest(self):
+		vf = VarFactory.VarFactory();
+		v = vf.testVar("test", Var.HGRAD);
+		bf = BF.BF_bf(vf);
+		sp = bf.functionSpaceForTest(v.ID());
+
+		self.assertEqual(sp, v.space(), "testing testFunctionSpaceForTest()");
+
+
+	def testFunctionSpaceForTrial(self):
+		vf = VarFactory.VarFactory();
+		v = vf.fieldVar("field");
+		bf = BF.BF_bf(vf);
+		sp = bf.functionSpaceForTrial(v.ID());
+		self.assertEqual(sp, v.space(), "testing testFunctionSpaceForTest()");
+
 
 	#Test addTerm method with two linear pointers
 	def testAddTerm1(self):
