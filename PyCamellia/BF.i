@@ -4,6 +4,8 @@
 %}
 
 %include "std_string.i"
+%include "Solution.i"
+%nodefaultctor BF;
 
 class BF {
  public:
@@ -28,6 +30,12 @@ class BF {
    LinearTermPtr testFunctional(SolutionPtr trialSolution);
 
    VarFactory varFactory();
+
+%extend {
+  static BFPtr bf(VarFactory vf) {
+    return Teuchos::rcp(new BF(vf));
+  }
+}
 
  };
 

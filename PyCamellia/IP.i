@@ -15,7 +15,7 @@ using namespace std;
 
 class IP{
 public:
-  IP();
+  static IPPtr ip();
   void addTerm(LinearTermPtr a);
   void addTerm(VarPtr v);
   LinearTermPtr evaluate(std::map< int, FunctionPtr> &varFunctions);
@@ -27,6 +27,9 @@ public:
     }
   }
 
+};
 
-
+class IPPtr {
+public:
+  IP* operator->();
 };
