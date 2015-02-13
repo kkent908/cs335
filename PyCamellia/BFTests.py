@@ -5,117 +5,200 @@ import LinearTerm
 import Function
 import IP
 import unittest
-import PoissonFormulation
+import Solution
+import MeshFactory
+import Mesh
 
-class Tests(unittest.TestCase):ls
+class BFTests(unittest.TestCase):
 
-"""Test the method testName()"""
-def testTestName(self):
-
-	vf = VarFactory.VarFactory();
-	myVar = vf.testVar("identify me 1", 1);
-	myVar2 = vf.testVar("identify me 2", 1);
-	i = myVar2.ID();
+	def testConstructor(self):
+		vf = VarFactory.VarFactory();
+		v = vf.fieldVar("hi");
+		u = vf.fieldVar("field");
+		uID = u.ID();
 	
-	bf = BF.BF(vf);
-	self.assertEqual(bf.testName(i), "identify me 2", "testName()");
-
-def testTrialName(self):
-	vf = VarFactory.VarFactory();
-	myVar = vf.fieldVar("identify me");
-	myVar2 = vf.fieldVar("identify me 2");
-	i = myVar2.ID();
-
-	bf = BF.BF(vf);
-	self.assertEqual(bf.trialName(i), "identify me 2", "trialName()");
-
-
-"""Test the method """
-def testAddTerm(self):
-
-
-f = Function.Function_xn(1);
-g = Function.Function_yn(1);
-vf = VarFactory.VarFactory();
-u = vf.fieldVar("field");
-v = vf.testVar("test", 7);
-
-lt = 1.0 * u;
-lt2 = 1.0 * v;
+		bf = BF.BF_bf(vf);
 	
+		vfCopy = bf.varFactory();
+		uCopy = vfCopy.trial(uID);
+		uIDCopy = uCopy.ID();
 
-bf = BF.BF(vf);
+		self.assertEqual(uID, uIDCopy, "test BF.BF_bf()");
 
+#Test the method testName()
+	def testTestName(self):
+
+		vf = VarFactory.VarFactory()
+		myVar = vf.testVar("identify me", 1)
+		i = myVar.ID();
 	
+		bf = BF.BF_bf(vf);
+		self.assertEqual(bf.testName(i), myVar.name(), "testName()");
+
+	def testTrialName(self):
+		vf = VarFactory.VarFactory();
+		myVar = vf.fieldVar("identify me");
+		i = myVar.ID();
+
+		bf = BF.BF_bf(vf);
+		self.assertEqual(bf.trialName(i), myVar.name(), "trialName()");
+
+	#Test addTerm method with two linear pointers
+	def testAddTerm1(self):
+
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field");
+		v = vf.testVar("test", Var.HGRAD);
+		bf = BF.BF_bf(vf);
+		lt = 1.0 * u;
+		lt2 = 1.0 * v;
+		bf.addTerm(lt, lt2)
+
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
 
 
-	#FunctionPtr
-h = lt.evaluate({
-		u.ID() : f
-		});
+	def testAddTerm2(self):
+
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		lt = 1.0 * v;
+		bf.addTerm(u, lt)
+
+
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
+
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
 
 
 
-        bf.addTerm(lt, lt2);
-	h.evaluate(5, 6);
+	def testAddTerm3(self):
 
-	bf = BF.BF(VarFactory.VarFactory());
-	bf.addTerm(lt, lt2);
-
-
-
-def testIsFluxOrTrace(self):
-	vf = VarFactory.VarFactory();
-	myVar = vf.fluxVar("identify me");
-	myVar2 = vf.traceVar("hey");
-	myVar3 = vf.fieldVar("hi");
-	i = myVar.ID();
-	j = myVar2.ID();
-	k = myVar3.ID();
-
-	bf = BF.BF(vf);
-	self.assertEqual(bf.isFluxOrTrace(i), True, "test isFluxOrTrace");
-	self.assertEqual(bf.isFluxOrTrace(j), True, "test isFluxOrTrace");
-	self.assertEqual(bf.isFluxOrTrace(k), False, "test isFluxOrTrace");
-
-def testGraphNorm(self):
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		lt = 1.0 * u;
+		bf.addTerm(lt, v)
 
 
-f = Function.Function_xn(1);
-g = Function.Function_yn(1);
-vf = VarFactory.VarFactory();
-u = vf.fieldVar("field");
-v = vf.testVar("test", 7);
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
 
-lt = 1.0 * u;
-lt2 = 1.0 * v;
 
-bf = BF.BF(vf);
-bf.addTerm(lt, lt2);
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
 
-ip = bf.graphNorm();
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
+
+
+	def testAddTerm4(self):
+
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
+
+
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
+
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
+
+
+	def testIsFluxOrTrace(self):
+		vf = VarFactory.VarFactory();
+		myVar = vf.fluxVar("identify me");
+		myVar2 = vf.traceVar("hey");
+		myVar3 = vf.fieldVar("hi");
+		i = myVar.ID();
+		j = myVar2.ID();
+		k = myVar3.ID();
+
+		bf = BF.BF_bf(vf);
+		self.assertEqual(bf.isFluxOrTrace(i), True, "test isFluxOrTrace");
+		self.assertEqual(bf.isFluxOrTrace(j), True, "test isFluxOrTrace");
+		self.assertEqual(bf.isFluxOrTrace(k), False, "test isFluxOrTrace");
+
+
+	#just make sure this method runs successfully.
+	def testGraphNorm(self):
+		
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
+		ip = bf.graphNorm();
+
+	#just make sure this method runs successfully.
+	def testNaieveNorm(self):
+
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
+		ip = bf.graphNorm();
+
+
+	def testVarFactory(self):
+
+		vf = VarFactory.VarFactory();
+		v = vf.fieldVar("hi");
+		u = vf.fieldVar("field");
+		uID = u.ID();
 	
-#linear term pointer
-h = ip.evaluate({ 
-		u.ID() : f,
-		v.ID() : g
-		});
-
-
-
-
-
-h = lt.evaluate({
-      u.ID() : f
-      });
-	h.evaluate(5, 6);
-
+		bf = BF.BF_bf(vf);
 	
+		vfCopy = bf.varFactory();
+		uCopy = vfCopy.trial(uID);
+		uIDCopy = uCopy.ID();
 
-	
-	
+		self.assertEqual(uID, uIDCopy, "testing varFactory()");
 
-
+if (__name__ == '__main__'):
+  unittest.main()
 
 
 	
