@@ -8,64 +8,143 @@ import unittest
 import Solution
 import MeshFactory
 import Mesh
-import PoissonFormulation
 
-class Tests(unittest.TestCase):
+class BFTests(unittest.TestCase):
+
+	def testConstructor(self):
+		vf = VarFactory.VarFactory();
+		v = vf.fieldVar("hi");
+		u = vf.fieldVar("field");
+		uID = u.ID();
+	
+		bf = BF.BF_bf(vf);
+	
+		vfCopy = bf.varFactory();
+		uCopy = vfCopy.trial(uID);
+		uIDCopy = uCopy.ID();
+
+		self.assertEqual(uID, uIDCopy, "test BF.BF_bf()");
 
 #Test the method testName()
 	def testTestName(self):
 
 		vf = VarFactory.VarFactory()
-		myVar = vf.testVar("identify me 1", 1)
-		myVar2 = vf.testVar("identify me 2", 1);
-		i = myVar2.ID();
+		myVar = vf.testVar("identify me", 1)
+		i = myVar.ID();
 	
-		bf = BF.BF(vf);
-		self.assertEqual(bf.testName(i), "identify me 2", "testName()");
+		bf = BF.BF_bf(vf);
+		self.assertEqual(bf.testName(i), myVar.name(), "testName()");
 
 	def testTrialName(self):
 		vf = VarFactory.VarFactory();
 		myVar = vf.fieldVar("identify me");
-		myVar2 = vf.fieldVar("identify me 2");
-		i = myVar2.ID();
+		i = myVar.ID();
 
-		bf = BF.BF(vf);
-		self.assertEqual(bf.trialName(i), "identify me 2", "trialName()");
+		bf = BF.BF_bf(vf);
+		self.assertEqual(bf.trialName(i), myVar.name(), "trialName()");
 
-#Test the method
-	def testAddTerm(self):
+	#Test addTerm method with two linear pointers
+	def testAddTerm1(self):
 
-f = Function.Function_xn(1);
-g = Function.Function_yn(1);
-vf = VarFactory.VarFactory();
-u = vf.fieldVar("field");
-v = vf.testVar("test", Var.HGRAD);
-bf = BF.BF_bf(vf);
-lt = 1.0 * u;
-lt2 = 1.0 * v;
-bf.addTerm(lt, lt2)
-	
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field");
+		v = vf.testVar("test", Var.HGRAD);
+		bf = BF.BF_bf(vf);
+		lt = 1.0 * u;
+		lt2 = 1.0 * v;
+		bf.addTerm(lt, lt2)
 
-mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [1.0, 1.0], [1, 1], 10)
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
 
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
 
-soln = Solution.Solution_solution(mesh)
-soln.projectOntoMesh({u.ID() : f})
-lt3 = bf.testFunctional(soln)
+		h = lt3.evaluate({v.ID() : g})
+		result = h.evaluate(5.0, 6.0);
 
-h = lt3.evaluate({v.ID() : g})
-
-result = h.evaluate(5.0, 6.0);
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
 
 
+	def testAddTerm2(self):
 
-		
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		lt = 1.0 * v;
+		bf.addTerm(u, lt)
 
 
-		#FunctionPtr
-h = lt.evaluate({u.ID() : f});
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
 
-i = lt.evaluate({v.ID() : g});
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
+
+
+
+	def testAddTerm3(self):
+
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		lt = 1.0 * u;
+		bf.addTerm(lt, v)
+
+
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
+
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
+
+
+	def testAddTerm4(self):
+
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
+
+
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
+
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
+
 
 	def testIsFluxOrTrace(self):
 		vf = VarFactory.VarFactory();
@@ -76,7 +155,7 @@ i = lt.evaluate({v.ID() : g});
 		j = myVar2.ID();
 		k = myVar3.ID();
 
-		bf = BF.BF(vf);
+		bf = BF.BF_bf(vf);
 		self.assertEqual(bf.isFluxOrTrace(i), True, "test isFluxOrTrace");
 		self.assertEqual(bf.isFluxOrTrace(j), True, "test isFluxOrTrace");
 		self.assertEqual(bf.isFluxOrTrace(k), False, "test isFluxOrTrace");
@@ -86,32 +165,31 @@ i = lt.evaluate({v.ID() : g});
 	def testGraphNorm(self):
 		
 		vf = VarFactory.VarFactory();
-		bf = BF.BF(vf);
-		bf.addTerm(lt, lt2);
-
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
 		ip = bf.graphNorm();
 
 	#just make sure this method runs successfully.
 	def testNaieveNorm(self):
-		vf = VarFactory.VarFactory();
-		bf = BF.BF(vf);
-		bf.naieveNorm(lt, lt2);
 
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
 		ip = bf.graphNorm();
 
 
 	def testVarFactory(self):
-
-
-		
-	
 
 		vf = VarFactory.VarFactory();
 		v = vf.fieldVar("hi");
 		u = vf.fieldVar("field");
 		uID = u.ID();
 	
-		bf = BF.BF(vf);
+		bf = BF.BF_bf(vf);
 	
 		vfCopy = bf.varFactory();
 		uCopy = vfCopy.trial(uID);
