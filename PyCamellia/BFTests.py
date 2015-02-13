@@ -49,7 +49,12 @@ class BFTests(unittest.TestCase):
 		self.assertEqual(bf.trialName(i), myVar.name(), "trialName()");
 
 	
-	
+#	These methods generate errors, so I commented them out for simplicity.
+#	Was unsure about how to use the return type, because it did not work with the 
+#	typical enum handling procedure.
+
+
+
 #	def testFunctionSpaceForTest(self):
 #		vf = VarFactory.VarFactory();
 #		v = vf.testVar("test", Var.HGRAD);
