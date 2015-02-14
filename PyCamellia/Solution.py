@@ -98,6 +98,7 @@ class SwigPyIterator(_object):
 SwigPyIterator_swigregister = _Solution.SwigPyIterator_swigregister
 SwigPyIterator_swigregister(SwigPyIterator)
 
+<<<<<<< HEAD
 class SetInt(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, SetInt, name, value)
@@ -137,6 +138,181 @@ class SetInt(_object):
     __del__ = lambda self : None;
 SetInt_swigregister = _Solution.SetInt_swigregister
 SetInt_swigregister(SetInt)
+=======
+class DoubleVector(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DoubleVector, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DoubleVector, name)
+    __repr__ = _swig_repr
+    def iterator(self): return _Solution.DoubleVector_iterator(self)
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self): return _Solution.DoubleVector___nonzero__(self)
+    def __bool__(self): return _Solution.DoubleVector___bool__(self)
+    def __len__(self): return _Solution.DoubleVector___len__(self)
+    def pop(self): return _Solution.DoubleVector_pop(self)
+    def __getslice__(self, *args): return _Solution.DoubleVector___getslice__(self, *args)
+    def __setslice__(self, *args): return _Solution.DoubleVector___setslice__(self, *args)
+    def __delslice__(self, *args): return _Solution.DoubleVector___delslice__(self, *args)
+    def __delitem__(self, *args): return _Solution.DoubleVector___delitem__(self, *args)
+    def __getitem__(self, *args): return _Solution.DoubleVector___getitem__(self, *args)
+    def __setitem__(self, *args): return _Solution.DoubleVector___setitem__(self, *args)
+    def append(self, *args): return _Solution.DoubleVector_append(self, *args)
+    def empty(self): return _Solution.DoubleVector_empty(self)
+    def size(self): return _Solution.DoubleVector_size(self)
+    def clear(self): return _Solution.DoubleVector_clear(self)
+    def swap(self, *args): return _Solution.DoubleVector_swap(self, *args)
+    def get_allocator(self): return _Solution.DoubleVector_get_allocator(self)
+    def begin(self): return _Solution.DoubleVector_begin(self)
+    def end(self): return _Solution.DoubleVector_end(self)
+    def rbegin(self): return _Solution.DoubleVector_rbegin(self)
+    def rend(self): return _Solution.DoubleVector_rend(self)
+    def pop_back(self): return _Solution.DoubleVector_pop_back(self)
+    def erase(self, *args): return _Solution.DoubleVector_erase(self, *args)
+    def __init__(self, *args): 
+        this = _Solution.new_DoubleVector(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def push_back(self, *args): return _Solution.DoubleVector_push_back(self, *args)
+    def front(self): return _Solution.DoubleVector_front(self)
+    def back(self): return _Solution.DoubleVector_back(self)
+    def assign(self, *args): return _Solution.DoubleVector_assign(self, *args)
+    def resize(self, *args): return _Solution.DoubleVector_resize(self, *args)
+    def insert(self, *args): return _Solution.DoubleVector_insert(self, *args)
+    def reserve(self, *args): return _Solution.DoubleVector_reserve(self, *args)
+    def capacity(self): return _Solution.DoubleVector_capacity(self)
+    __swig_destroy__ = _Solution.delete_DoubleVector
+    __del__ = lambda self : None;
+DoubleVector_swigregister = _Solution.DoubleVector_swigregister
+DoubleVector_swigregister(DoubleVector)
+
+class IntVector(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IntVector, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, IntVector, name)
+    __repr__ = _swig_repr
+    def iterator(self): return _Solution.IntVector_iterator(self)
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self): return _Solution.IntVector___nonzero__(self)
+    def __bool__(self): return _Solution.IntVector___bool__(self)
+    def __len__(self): return _Solution.IntVector___len__(self)
+    def pop(self): return _Solution.IntVector_pop(self)
+    def __getslice__(self, *args): return _Solution.IntVector___getslice__(self, *args)
+    def __setslice__(self, *args): return _Solution.IntVector___setslice__(self, *args)
+    def __delslice__(self, *args): return _Solution.IntVector___delslice__(self, *args)
+    def __delitem__(self, *args): return _Solution.IntVector___delitem__(self, *args)
+    def __getitem__(self, *args): return _Solution.IntVector___getitem__(self, *args)
+    def __setitem__(self, *args): return _Solution.IntVector___setitem__(self, *args)
+    def append(self, *args): return _Solution.IntVector_append(self, *args)
+    def empty(self): return _Solution.IntVector_empty(self)
+    def size(self): return _Solution.IntVector_size(self)
+    def clear(self): return _Solution.IntVector_clear(self)
+    def swap(self, *args): return _Solution.IntVector_swap(self, *args)
+    def get_allocator(self): return _Solution.IntVector_get_allocator(self)
+    def begin(self): return _Solution.IntVector_begin(self)
+    def end(self): return _Solution.IntVector_end(self)
+    def rbegin(self): return _Solution.IntVector_rbegin(self)
+    def rend(self): return _Solution.IntVector_rend(self)
+    def pop_back(self): return _Solution.IntVector_pop_back(self)
+    def erase(self, *args): return _Solution.IntVector_erase(self, *args)
+    def __init__(self, *args): 
+        this = _Solution.new_IntVector(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def push_back(self, *args): return _Solution.IntVector_push_back(self, *args)
+    def front(self): return _Solution.IntVector_front(self)
+    def back(self): return _Solution.IntVector_back(self)
+    def assign(self, *args): return _Solution.IntVector_assign(self, *args)
+    def resize(self, *args): return _Solution.IntVector_resize(self, *args)
+    def insert(self, *args): return _Solution.IntVector_insert(self, *args)
+    def reserve(self, *args): return _Solution.IntVector_reserve(self, *args)
+    def capacity(self): return _Solution.IntVector_capacity(self)
+    __swig_destroy__ = _Solution.delete_IntVector
+    __del__ = lambda self : None;
+IntVector_swigregister = _Solution.IntVector_swigregister
+IntVector_swigregister(IntVector)
+
+class InSet(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, InSet, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, InSet, name)
+    __repr__ = _swig_repr
+    def iterator(self): return _Solution.InSet_iterator(self)
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self): return _Solution.InSet___nonzero__(self)
+    def __bool__(self): return _Solution.InSet___bool__(self)
+    def __len__(self): return _Solution.InSet___len__(self)
+    def append(self, *args): return _Solution.InSet_append(self, *args)
+    def __contains__(self, *args): return _Solution.InSet___contains__(self, *args)
+    def __getitem__(self, *args): return _Solution.InSet___getitem__(self, *args)
+    def add(self, *args): return _Solution.InSet_add(self, *args)
+    def discard(self, *args): return _Solution.InSet_discard(self, *args)
+    def __init__(self, *args): 
+        this = _Solution.new_InSet(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def empty(self): return _Solution.InSet_empty(self)
+    def size(self): return _Solution.InSet_size(self)
+    def clear(self): return _Solution.InSet_clear(self)
+    def swap(self, *args): return _Solution.InSet_swap(self, *args)
+    def count(self, *args): return _Solution.InSet_count(self, *args)
+    def begin(self): return _Solution.InSet_begin(self)
+    def end(self): return _Solution.InSet_end(self)
+    def rbegin(self): return _Solution.InSet_rbegin(self)
+    def rend(self): return _Solution.InSet_rend(self)
+    def erase(self, *args): return _Solution.InSet_erase(self, *args)
+    def find(self, *args): return _Solution.InSet_find(self, *args)
+    def lower_bound(self, *args): return _Solution.InSet_lower_bound(self, *args)
+    def upper_bound(self, *args): return _Solution.InSet_upper_bound(self, *args)
+    def equal_range(self, *args): return _Solution.InSet_equal_range(self, *args)
+    def insert(self, *args): return _Solution.InSet_insert(self, *args)
+    __swig_destroy__ = _Solution.delete_InSet
+    __del__ = lambda self : None;
+InSet_swigregister = _Solution.InSet_swigregister
+InSet_swigregister(InSet)
+
+class UnsignedSet(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UnsignedSet, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, UnsignedSet, name)
+    __repr__ = _swig_repr
+    def iterator(self): return _Solution.UnsignedSet_iterator(self)
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self): return _Solution.UnsignedSet___nonzero__(self)
+    def __bool__(self): return _Solution.UnsignedSet___bool__(self)
+    def __len__(self): return _Solution.UnsignedSet___len__(self)
+    def append(self, *args): return _Solution.UnsignedSet_append(self, *args)
+    def __contains__(self, *args): return _Solution.UnsignedSet___contains__(self, *args)
+    def __getitem__(self, *args): return _Solution.UnsignedSet___getitem__(self, *args)
+    def add(self, *args): return _Solution.UnsignedSet_add(self, *args)
+    def discard(self, *args): return _Solution.UnsignedSet_discard(self, *args)
+    def __init__(self, *args): 
+        this = _Solution.new_UnsignedSet(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def empty(self): return _Solution.UnsignedSet_empty(self)
+    def size(self): return _Solution.UnsignedSet_size(self)
+    def clear(self): return _Solution.UnsignedSet_clear(self)
+    def swap(self, *args): return _Solution.UnsignedSet_swap(self, *args)
+    def count(self, *args): return _Solution.UnsignedSet_count(self, *args)
+    def begin(self): return _Solution.UnsignedSet_begin(self)
+    def end(self): return _Solution.UnsignedSet_end(self)
+    def rbegin(self): return _Solution.UnsignedSet_rbegin(self)
+    def rend(self): return _Solution.UnsignedSet_rend(self)
+    def erase(self, *args): return _Solution.UnsignedSet_erase(self, *args)
+    def find(self, *args): return _Solution.UnsignedSet_find(self, *args)
+    def lower_bound(self, *args): return _Solution.UnsignedSet_lower_bound(self, *args)
+    def upper_bound(self, *args): return _Solution.UnsignedSet_upper_bound(self, *args)
+    def equal_range(self, *args): return _Solution.UnsignedSet_equal_range(self, *args)
+    def insert(self, *args): return _Solution.UnsignedSet_insert(self, *args)
+    __swig_destroy__ = _Solution.delete_UnsignedSet
+    __del__ = lambda self : None;
+UnsignedSet_swigregister = _Solution.UnsignedSet_swigregister
+UnsignedSet_swigregister(UnsignedSet)
+>>>>>>> d470fdf2da45e3bf5d0a4ef9d5c37362c67c173b
 
 class MapIntToFunction(_object):
     __swig_setmethods__ = {}

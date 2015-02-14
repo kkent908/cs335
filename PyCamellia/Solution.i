@@ -6,9 +6,13 @@
 %include "std_set.i"
 %include "std_map.i"
 
+%nodefaultctor Solution;
 
 namespace std {
-  %template(SetInt) set<int>;
+  %template(DoubleVector) vector<double>;
+  %template(IntVector) vector<int>;
+  %template(InSet) set<int>;
+  %template(UnsignedSet) set<unsigned>;
   %template(MapIntToFunction) map<int,FunctionPtr>;
 }
 
@@ -16,8 +20,8 @@ using namespace std;
 
 class Solution {
  public:
-  Solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
-	   RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null );
+  static SolutionPtr solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
+                              RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null);
   int solve();
   void addSolution(SolutionPtr soln, double weight,
 		 bool allowEmptyCells = false, bool replaceBoundaryTerms=false);
