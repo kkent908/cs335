@@ -9,10 +9,12 @@
 %include "std_set.i"
 %include "std_map.i"
 
+%nodefaultctor Solution;
+
 namespace std {
   %template(DoubleVector) vector<double>;
   %template(IntVector) vector<int>;
-  %template(IntSet) set<int>;
+  %template(InSet) set<int>;
   %template(UnsignedSet) set<unsigned>;
   %template(MapIntToFunction) map<int,FunctionPtr>;
 }
@@ -20,7 +22,6 @@ using namespace std;
 
 class Solution {
  public:
- 
   static SolutionPtr solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
                               RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null);
   int solve();
