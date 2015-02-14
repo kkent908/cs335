@@ -69,15 +69,134 @@ except AttributeError:
     _newclass = 0
 
 
+class SwigPyIterator(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SwigPyIterator, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SwigPyIterator, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    __swig_destroy__ = _Solution.delete_SwigPyIterator
+    __del__ = lambda self : None;
+    def value(self): return _Solution.SwigPyIterator_value(self)
+    def incr(self, n=1): return _Solution.SwigPyIterator_incr(self, n)
+    def decr(self, n=1): return _Solution.SwigPyIterator_decr(self, n)
+    def distance(self, *args): return _Solution.SwigPyIterator_distance(self, *args)
+    def equal(self, *args): return _Solution.SwigPyIterator_equal(self, *args)
+    def copy(self): return _Solution.SwigPyIterator_copy(self)
+    def next(self): return _Solution.SwigPyIterator_next(self)
+    def __next__(self): return _Solution.SwigPyIterator___next__(self)
+    def previous(self): return _Solution.SwigPyIterator_previous(self)
+    def advance(self, *args): return _Solution.SwigPyIterator_advance(self, *args)
+    def __eq__(self, *args): return _Solution.SwigPyIterator___eq__(self, *args)
+    def __ne__(self, *args): return _Solution.SwigPyIterator___ne__(self, *args)
+    def __iadd__(self, *args): return _Solution.SwigPyIterator___iadd__(self, *args)
+    def __isub__(self, *args): return _Solution.SwigPyIterator___isub__(self, *args)
+    def __add__(self, *args): return _Solution.SwigPyIterator___add__(self, *args)
+    def __sub__(self, *args): return _Solution.SwigPyIterator___sub__(self, *args)
+    def __iter__(self): return self
+SwigPyIterator_swigregister = _Solution.SwigPyIterator_swigregister
+SwigPyIterator_swigregister(SwigPyIterator)
+
+class SetInt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SetInt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SetInt, name)
+    __repr__ = _swig_repr
+    def iterator(self): return _Solution.SetInt_iterator(self)
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self): return _Solution.SetInt___nonzero__(self)
+    def __bool__(self): return _Solution.SetInt___bool__(self)
+    def __len__(self): return _Solution.SetInt___len__(self)
+    def append(self, *args): return _Solution.SetInt_append(self, *args)
+    def __contains__(self, *args): return _Solution.SetInt___contains__(self, *args)
+    def __getitem__(self, *args): return _Solution.SetInt___getitem__(self, *args)
+    def add(self, *args): return _Solution.SetInt_add(self, *args)
+    def discard(self, *args): return _Solution.SetInt_discard(self, *args)
+    def __init__(self, *args): 
+        this = _Solution.new_SetInt(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def empty(self): return _Solution.SetInt_empty(self)
+    def size(self): return _Solution.SetInt_size(self)
+    def clear(self): return _Solution.SetInt_clear(self)
+    def swap(self, *args): return _Solution.SetInt_swap(self, *args)
+    def count(self, *args): return _Solution.SetInt_count(self, *args)
+    def begin(self): return _Solution.SetInt_begin(self)
+    def end(self): return _Solution.SetInt_end(self)
+    def rbegin(self): return _Solution.SetInt_rbegin(self)
+    def rend(self): return _Solution.SetInt_rend(self)
+    def erase(self, *args): return _Solution.SetInt_erase(self, *args)
+    def find(self, *args): return _Solution.SetInt_find(self, *args)
+    def lower_bound(self, *args): return _Solution.SetInt_lower_bound(self, *args)
+    def upper_bound(self, *args): return _Solution.SetInt_upper_bound(self, *args)
+    def equal_range(self, *args): return _Solution.SetInt_equal_range(self, *args)
+    def insert(self, *args): return _Solution.SetInt_insert(self, *args)
+    __swig_destroy__ = _Solution.delete_SetInt
+    __del__ = lambda self : None;
+SetInt_swigregister = _Solution.SetInt_swigregister
+SetInt_swigregister(SetInt)
+
+class MapIntToFunction(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MapIntToFunction, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MapIntToFunction, name)
+    __repr__ = _swig_repr
+    def iterator(self): return _Solution.MapIntToFunction_iterator(self)
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self): return _Solution.MapIntToFunction___nonzero__(self)
+    def __bool__(self): return _Solution.MapIntToFunction___bool__(self)
+    def __len__(self): return _Solution.MapIntToFunction___len__(self)
+    def __iter__(self): return self.key_iterator()
+    def iterkeys(self): return self.key_iterator()
+    def itervalues(self): return self.value_iterator()
+    def iteritems(self): return self.iterator()
+    def __getitem__(self, *args): return _Solution.MapIntToFunction___getitem__(self, *args)
+    def __delitem__(self, *args): return _Solution.MapIntToFunction___delitem__(self, *args)
+    def has_key(self, *args): return _Solution.MapIntToFunction_has_key(self, *args)
+    def keys(self): return _Solution.MapIntToFunction_keys(self)
+    def values(self): return _Solution.MapIntToFunction_values(self)
+    def items(self): return _Solution.MapIntToFunction_items(self)
+    def __contains__(self, *args): return _Solution.MapIntToFunction___contains__(self, *args)
+    def key_iterator(self): return _Solution.MapIntToFunction_key_iterator(self)
+    def value_iterator(self): return _Solution.MapIntToFunction_value_iterator(self)
+    def __setitem__(self, *args): return _Solution.MapIntToFunction___setitem__(self, *args)
+    def asdict(self): return _Solution.MapIntToFunction_asdict(self)
+    def __init__(self, *args): 
+        this = _Solution.new_MapIntToFunction(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def empty(self): return _Solution.MapIntToFunction_empty(self)
+    def size(self): return _Solution.MapIntToFunction_size(self)
+    def clear(self): return _Solution.MapIntToFunction_clear(self)
+    def swap(self, *args): return _Solution.MapIntToFunction_swap(self, *args)
+    def get_allocator(self): return _Solution.MapIntToFunction_get_allocator(self)
+    def begin(self): return _Solution.MapIntToFunction_begin(self)
+    def end(self): return _Solution.MapIntToFunction_end(self)
+    def rbegin(self): return _Solution.MapIntToFunction_rbegin(self)
+    def rend(self): return _Solution.MapIntToFunction_rend(self)
+    def count(self, *args): return _Solution.MapIntToFunction_count(self, *args)
+    def erase(self, *args): return _Solution.MapIntToFunction_erase(self, *args)
+    def find(self, *args): return _Solution.MapIntToFunction_find(self, *args)
+    def lower_bound(self, *args): return _Solution.MapIntToFunction_lower_bound(self, *args)
+    def upper_bound(self, *args): return _Solution.MapIntToFunction_upper_bound(self, *args)
+    __swig_destroy__ = _Solution.delete_MapIntToFunction
+    __del__ = lambda self : None;
+MapIntToFunction_swigregister = _Solution.MapIntToFunction_swigregister
+MapIntToFunction_swigregister(MapIntToFunction)
+
 class Solution(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Solution, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Solution, name)
-    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    __swig_getmethods__["solution"] = lambda x: _Solution.Solution_solution
-    if _newclass:solution = staticmethod(_Solution.Solution_solution)
+    def __init__(self, *args): 
+        this = _Solution.new_Solution(*args)
+        try: self.this.append(this)
+        except: self.this = this
     def solve(self): return _Solution.Solution_solve(self)
     def addSolution(self, *args): return _Solution.Solution_addSolution(self, *args)
     def clear(self): return _Solution.Solution_clear(self)
@@ -101,18 +220,21 @@ class Solution(_object):
     if _newclass:load = staticmethod(_Solution.Solution_load)
     def saveToHDF5(self, *args): return _Solution.Solution_saveToHDF5(self, *args)
     def loadFromHDF5(self, *args): return _Solution.Solution_loadFromHDF5(self, *args)
+    def setUseCondensedSolve(self, *args): return _Solution.Solution_setUseCondensedSolve(self, *args)
+    __swig_getmethods__["solution"] = lambda x: _Solution.Solution_solution
+    if _newclass:solution = staticmethod(_Solution.Solution_solution)
     __swig_destroy__ = _Solution.delete_Solution
     __del__ = lambda self : None;
 Solution_swigregister = _Solution.Solution_swigregister
 Solution_swigregister(Solution)
 
-def Solution_solution(*args):
-  return _Solution.Solution_solution(*args)
-Solution_solution = _Solution.Solution_solution
-
 def Solution_load(*args):
   return _Solution.Solution_load(*args)
 Solution_load = _Solution.Solution_load
+
+def Solution_solution(*args):
+  return _Solution.Solution_solution(*args)
+Solution_solution = _Solution.Solution_solution
 
 class SolutionPtr(_object):
     __swig_setmethods__ = {}
@@ -127,7 +249,6 @@ class SolutionPtr(_object):
         except: self.this = this
     __swig_destroy__ = _Solution.delete_SolutionPtr
     __del__ = lambda self : None;
-    def solution(self, *args): return _Solution.SolutionPtr_solution(self, *args)
     def solve(self): return _Solution.SolutionPtr_solve(self)
     def addSolution(self, *args): return _Solution.SolutionPtr_addSolution(self, *args)
     def clear(self): return _Solution.SolutionPtr_clear(self)
@@ -150,6 +271,8 @@ class SolutionPtr(_object):
     def load(self, *args): return _Solution.SolutionPtr_load(self, *args)
     def saveToHDF5(self, *args): return _Solution.SolutionPtr_saveToHDF5(self, *args)
     def loadFromHDF5(self, *args): return _Solution.SolutionPtr_loadFromHDF5(self, *args)
+    def setUseCondensedSolve(self, *args): return _Solution.SolutionPtr_setUseCondensedSolve(self, *args)
+    def solution(self, *args): return _Solution.SolutionPtr_solution(self, *args)
 SolutionPtr_swigregister = _Solution.SolutionPtr_swigregister
 SolutionPtr_swigregister(SolutionPtr)
 
