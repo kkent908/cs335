@@ -173,6 +173,29 @@ class BFTests(unittest.TestCase):
 
 		self.assertAlmostEqual(30.0,result,delta=1e-6)
 
+	def testTestFunctional(self):
+		f = Function.Function_xn(1);
+		g = Function.Function_yn(1);
+		vf = VarFactory.VarFactory();
+		u = vf.fieldVar("field"); #trial var
+		v = vf.testVar("test", Var.HGRAD); #test var
+		bf = BF.BF_bf(vf);
+		bf.addTerm(u, v)
+
+
+		mesh = MeshFactory.MeshFactory_rectilinearMesh(bf, [10.0, 10.0], [1, 1], 10)
+
+
+		soln = Solution.Solution_solution(mesh)
+		soln.projectOntoMesh({u.ID() : f})
+		lt3 = bf.testFunctional(soln)
+
+		h = lt3.evaluate({v.ID() : g})
+
+		result = h.evaluate(5.0, 6.0);
+
+		self.assertAlmostEqual(30.0,result,delta=1e-6)
+
 
 	def testIsFluxOrTrace(self):
 		vf = VarFactory.VarFactory();
