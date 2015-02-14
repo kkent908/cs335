@@ -12,7 +12,7 @@
 namespace std {
   %template(DoubleVector) vector<double>;
   %template(IntVector) vector<int>;
-  %template(InSet) set<int>;
+  %template(IntSet) set<int>;
   %template(UnsignedSet) set<unsigned>;
   %template(MapIntToFunction) map<int,FunctionPtr>;
 }
