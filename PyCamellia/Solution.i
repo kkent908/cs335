@@ -5,13 +5,14 @@
 
 %include "std_set.i"
 %include "std_map.i"
+%include "std_vector.i"
 
 %nodefaultctor Solution;
 
 namespace std {
   %template(DoubleVector) vector<double>;
   %template(IntVector) vector<int>;
-  %template(InSet) set<int>;
+  %template(IntSet) set<int>;
   %template(UnsignedSet) set<unsigned>;
   %template(MapIntToFunction) map<int,FunctionPtr>;
 }
@@ -48,8 +49,6 @@ class Solution {
   void saveToHDF5(std::string filename);
   void loadFromHDF5(std::string filename);
   void setUseCondensedSolve(bool value);
-  static SolutionPtr solution(MeshPtr mesh, BCPtr bc = Teuchos::null,
-                              RHSPtr rhs = Teuchos::null, IPPtr ip = Teuchos::null);
 };
 
 typedef Teuchos::RCP<Solution> SolutionPtr;
